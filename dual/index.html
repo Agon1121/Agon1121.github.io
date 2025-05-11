@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>테트리스: 플레이어 vs AI</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Tetris vs AI Battle</h1>
+    
+    <div class="winner-banner" id="winnerBanner"></div>
+    
+    <div class="game-container">
+        <div class="board-container">
+            <div class="player-label">You</div>
+            <canvas id="playerGame"></canvas>
+        </div>
+        
+        <div class="board-container">
+            <div class="player-label">AI</div>
+            <canvas id="aiGame"></canvas>
+        </div>
+    </div>
+    <div class="battle-controls">
+      <button id="startButton">Start Battle</button>
+      <button id="restartButton">Restart Game</button>
+    </div>
+    
+    <div class="controls">
+      <h3>게임 컨트롤</h3>
+      <p>
+        <span class="key">←</span> 왼쪽 이동 
+        <span class="key">→</span> 오른쪽 이동
+        <span class="key">↓</span> 소프트 드랍
+        <span class="key">↑</span> 회전
+        <span class="key">Space</span> 하드 드랍
+        <span class="key">C</span> 홀드
+        <span class="key">R</span> 다시 시작
+      </p>
+      <p>AI와 경쟁해서 더 많은 줄을 없애고 높은 점수를 획득하세요!</p>
+    </div>
+  </div>
+
+  <script src="tetris.js"></script>
+</body>
+</html>
