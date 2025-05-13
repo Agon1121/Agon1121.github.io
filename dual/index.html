@@ -1,47 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>테트리스: 플레이어 vs AI</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris vs AI</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Tetris vs AI Battle</h1>
-    
-    <div class="winner-banner" id="winnerBanner"></div>
-    
     <div class="game-container">
         <div class="board-container">
-            <div class="player-label">You</div>
-            <canvas id="playerGame"></canvas>
+            <div class="player-label">PLAYER</div>
+            <canvas id="player-canvas"></canvas>
+            <div class="game-info">
+                <div>Score: <span id="player-score">0</span></div>
+                <div>Lines: <span id="player-lines">0</span></div>
+                <div>Level: <span id="player-level">1</span></div>
+            </div>
         </div>
         
         <div class="board-container">
             <div class="player-label">AI</div>
-            <canvas id="aiGame"></canvas>
+            <canvas id="ai-canvas"></canvas>
+            <div class="game-info">
+                <div>Score: <span id="ai-score">0</span></div>
+                <div>Lines: <span id="ai-lines">0</span></div>
+                <div>Level: <span id="ai-level">1</span></div>
+            </div>
         </div>
-    </div>
-    <div class="battle-controls">
-      <button id="startButton">Start Battle</button>
-      <button id="restartButton">Restart Game</button>
     </div>
     
     <div class="controls">
-      <h3>게임 컨트롤</h3>
-      <p>
-        <span class="key">←</span> 왼쪽 이동 
-        <span class="key">→</span> 오른쪽 이동
-        <span class="key">↓</span> 소프트 드랍
-        <span class="key">↑</span> 회전
-        <span class="key">Space</span> 하드 드랍
-        <span class="key">C</span> 홀드
-        <span class="key">R</span> 다시 시작
-      </p>
-      <p>AI와 경쟁해서 더 많은 줄을 없애고 높은 점수를 획득하세요!</p>
+        <div class="difficulty-container">
+            <label for="difficulty">AI Difficulty:</label>
+            <select id="difficulty">
+                <option value="easy">Easy</option>
+                <option value="medium" selected>Medium</option>
+                <option value="hard">Hard</option>
+                <option value="expert">Expert</option>
+            </select>
+            <button id="start-button">Start Game</button>
+        </div>
+        
+        <h2>Controls</h2>
+        <div class="controls-grid">
+            <div class="controls-section">
+                <h3>Movement</h3>
+                <p><kbd>←</kbd> / <kbd>→</kbd>: Move Left/Right</p>
+                <p><kbd>↓</kbd>: Soft Drop</p>
+                <p><kbd>Space</kbd>: Hard Drop</p>
+            </div>
+            <div class="controls-section">
+                <h3>Rotation</h3>
+                <p><kbd>↑</kbd>: Rotate Clockwise</p>
+                <p><kbd>Z</kbd>: Rotate Counter-clockwise</p>
+                <p><kbd>A</kbd>: Rotate 180°</p>
+            </div>
+            <div class="controls-section">
+                <h3>Other</h3>
+                <p><kbd>C</kbd>: Hold Piece</p>
+                <p><kbd>R</kbd>: Restart Game</p>
+                <p><kbd>P</kbd>: Pause Game</p>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <script src="tetris.js"></script>
+    <!-- Load modules in the correct order -->
+    <script src="js/constants.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/tetromino.js"></script>
+    <script src="js/board.js"></script>
+    <script src="js/renderer.js"></script>
+    <script src="js/ai/evaluator.js"></script>
+    <script src="js/ai/beam-search.js"></script>
+    <script src="js/ai/ai-player.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>

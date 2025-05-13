@@ -7,7 +7,7 @@
 }
 
 
-.linktext {
+a {
     font-size: 60px;
     color: #333;
     margin-top: 120px;
@@ -19,5 +19,6 @@
     background-color: #fff0f0;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s, box-shadow 0.3s;
-
+    display: inline-block;
+    
 }
