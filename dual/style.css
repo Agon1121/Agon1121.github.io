@@ -71,18 +71,6 @@ kbd {
     text-align: center;
 }
 
-.difficulty-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 15px;
-}
-
-#difficulty {
-    margin: 0 10px;
-    padding: 5px;
-}
-
 #start-button {
     padding: 8px 16px;
     background-color: #4CAF50;
