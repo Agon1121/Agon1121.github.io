@@ -1,6 +1,9 @@
 // Game class to manage game state and controls
 class Game {
     constructor() {
+        // 공유 가방을 위한 Utils 초기화
+        Utils.refillBag();
+        
         // Create player board and renderer
         this.playerBoard = new Board();
         this.playerRenderer = new Renderer('player-canvas', this.playerBoard);
@@ -11,7 +14,7 @@ class Game {
         
         // Create AI player
         this.aiPlayer = new AIPlayer(this.aiBoard);
-        this.aiPlayer.setDifficulty('medium');
+        this.aiPlayer.adjustDifficulty();
         
         // Game timers
         this.playerDropInterval = null;
@@ -30,6 +33,9 @@ class Game {
     
     // Start both player and AI games
     start() {
+        // 새 게임 시작시 가방 시스템 리셋
+        Utils.refillBag();
+        
         // Reset boards
         this.playerBoard.reset();
         this.aiBoard.reset();

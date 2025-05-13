@@ -1,5 +1,31 @@
 // Utility functions for the game
 const Utils = {
+    // 테트로미노 가방 시스템 구현
+    tetrominoBag: [],
+    
+    // 가방에서 다음 테트로미노를 가져옴
+    getRandomTetromino: function() {
+        // 가방이 비었으면 새 가방 생성
+        if (this.tetrominoBag.length === 0) {
+            this.refillBag();
+        }
+        
+        // 가방에서 테트로미노 하나를 꺼냄
+        return this.tetrominoBag.pop();
+    },
+    
+    // 가방에 7개의 테트로미노를 무작위 순서로 채움
+    refillBag: function() {
+        // 1부터 7까지의 숫자(테트로미노 타입)를 배열에 넣음
+        this.tetrominoBag = [1, 2, 3, 4, 5, 6, 7];
+        
+        // Fisher-Yates 알고리즘으로 배열을 섞음
+        for (let i = this.tetrominoBag.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [this.tetrominoBag[i], this.tetrominoBag[j]] = [this.tetrominoBag[j], this.tetrominoBag[i]];
+        }
+    },
+    
     // Check if the piece can move to a new position
     isValidMove: function(board, piece, offsetX = 0, offsetY = 0) {
         const { shape, x, y } = piece;
@@ -69,11 +95,6 @@ const Utils = {
     // Create a deep copy of a matrix
     cloneMatrix: function(matrix) {
         return matrix.map(row => [...row]);
-    },
-    
-    // Generate a random tetromino index (1-7)
-    getRandomTetromino: function() {
-        return Math.floor(Math.random() * 7) + 1;
     },
     
     // Get wall kick data for rotation

@@ -12,6 +12,9 @@ class Board {
         this.lines = 0;
         this.level = 1;
         
+        // 가방 시스템 초기화
+        Utils.refillBag();
+        
         // Next pieces queue (show 3 next pieces)
         this.nextPieces = [
             new Tetromino(),
